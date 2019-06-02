@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ImoveisMVC.Models.ImovelModel>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a class="btn btn-dark" asp-action="Create">Adicionar imóvel</a>
+</p>
+
+
+
+@using (Html.BeginForm())
+{
+    <div class="nav justify-content-end">
+        <p>
+            Busca: @Html.TextBox("SearchString")
+            <input type="submit" class="btn btn-dark" value="Buscar" />
+        </p>
+    </div>
+}
+
+<div class="table-responsive-md">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.ActionLink("Descrição", "Index", new { sortOrder = ViewBag.DscSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("Valor (R$)", "Index", new { sortOrder = ViewBag.VlrSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("Núm. Quartos", "Index", new { sortOrder = ViewBag.QrtSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("Núm. Vagas", "Index", new { sortOrder = ViewBag.VagSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("Tipo", "Index", new { sortOrder = ViewBag.TipSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("Logradouro", "Index", new { sortOrder = ViewBag.RuaSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("Bairro", "Index", new { sortOrder = ViewBag.BroSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("Cidade", "Index", new { sortOrder = ViewBag.CddSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("Estado", "Index", new { sortOrder = ViewBag.UFSortParm })
+                </th>
+                <th>
+                    CEP
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DscImovel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VlrImovel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumQrtImovel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumVagImovel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipImovel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RuaImovel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BroImovel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CddImovel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UFImovel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CEPImovel)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" class="btn btn-dark" asp-route-id="@item.IdImovel">Editar</a> |
+                        <a asp-action="Delete" class="btn btn-dark" asp-route-id="@item.IdImovel">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

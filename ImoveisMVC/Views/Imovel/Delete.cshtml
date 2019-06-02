@@ -1,0 +1,82 @@
+﻿@model ImoveisMVC.Models.ImovelModel
+
+@{
+    ViewData["Title"] = "Excluir";
+}
+
+<h2>Excluir</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Descrição
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DscImovel)
+        </dd>
+        <dt>
+            Valor (R$)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VlrImovel)
+        </dd>
+        <dt>
+            Núm. Quartos
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumQrtImovel)
+        </dd>
+        <dt>
+            Núm. Vagas
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumVagImovel)
+        </dd>
+        <dt>
+            Tipo
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TipImovel)
+        </dd>
+        <dt>
+            Logradouro
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RuaImovel)
+        </dd>
+        <dt>
+            Bairro
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BroImovel)
+        </dd>
+        <dt>
+            Cidade
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CddImovel)
+        </dd>
+        <dt>
+            Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UFImovel)
+        </dd>
+        <dt>
+            CEP
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CEPImovel)
+        </dd>
+    </dl>
+    <div class="form-group">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="IdImovel" />
+            <input class="btn-danger" type="submit" value="Excluir" asp-route-id="@Model.IdImovel" />
+        </form>
+    </div>
+</div>
+<div >
+    <a class="btn btn-dark" asp-action="Index">Voltar</a>
+</div>

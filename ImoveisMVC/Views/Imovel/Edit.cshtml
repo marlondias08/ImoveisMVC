@@ -1,0 +1,84 @@
+﻿@model ImoveisMVC.Models.ImovelModel
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h2>Editar</h2>
+
+<hr />
+<div class="container">
+    <div class="row">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdImovel" />
+            <div class="form-group col-md-6">
+                <label asp-for="DscImovel" class="control-label">Descrição</label>
+                <input asp-for="DscImovel" id="desc" class="form-control" />
+                <span asp-validation-for="DscImovel" class="text-danger"></span>
+            </div>
+            <div class="form-group  col-md-6">
+                <label asp-for="VlrImovel" class="control-label">Valor (R$)</label>
+                <input asp-for="VlrImovel" id="valor" class="form-control" />
+                <span asp-validation-for="VlrImovel" class="text-danger"></span>
+            </div>
+            <div class="form-group  col-md-6">
+                <label asp-for="NumQrtImovel" class="control-label"> Número de Quartos</label>
+                <input asp-for="NumQrtImovel" min="0" class="form-control" />
+                <span asp-validation-for="NumQrtImovel" class="text-danger"></span>
+            </div>
+            <div class="form-group  col-md-6">
+                <label asp-for="NumVagImovel" class="control-label">Número de vagas</label>
+                <input asp-for="NumVagImovel" min="0" class="form-control" />
+                <span asp-validation-for="NumVagImovel" class="text-danger"></span>
+            </div>
+            <div class="form-group  col-md-6">
+                <label asp-for="TipImovel" class="control-label"> Tipo de imóvel</label>
+                <select asp-for="TipImovel" id="tipos" class="form-control">
+                    <option value="Casa">Casa</option>
+                    <option value="Apartamento">Apartamento</option>
+                    <option value="Comercial">Comercial</option>
+                </select>
+                <span asp-validation-for="TipImovel" class="text-danger"></span>
+            </div>
+            <div class="form-group  col-md-6">
+                <label asp-for="CEPImovel" class="control-label">CEP</label>
+                <input asp-for="CEPImovel" id="cep" type="number" maxlength="8" class="form-control" />
+                <span asp-validation-for="CEPImovel" class="text-danger"></span>
+            </div>
+            <div class="form-group  col-md-6">
+                <label asp-for="RuaImovel" class="control-label">Logradouro</label>
+                <input asp-for="RuaImovel" id="logradouro" class="form-control" />
+                <span asp-validation-for="RuaImovel" class="text-danger"></span>
+            </div>
+            <div class="form-group  col-md-6">
+                <label asp-for="BroImovel" class="control-label">Bairro</label>
+                <input asp-for="BroImovel" id="bairro" class="form-control" />
+                <span asp-validation-for="BroImovel" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="CddImovel" class="control-label">Cidade</label>
+                <input asp-for="CddImovel" id="cidade" class="form-control" />
+                <span asp-validation-for="CddImovel" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="UFImovel" class="control-label">Estado</label>
+                <input asp-for="UFImovel" id="uf" class="form-control" />
+                <span asp-validation-for="UFImovel" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-2">
+                <input type="submit" class="btn btn-success" value="Salvar" asp-route-id="@Model.IdImovel" />
+            </div>
+        </form>
+    </div>
+    <div>
+        <a class="btn btn-dark" asp-action="Index">Voltar</a>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
